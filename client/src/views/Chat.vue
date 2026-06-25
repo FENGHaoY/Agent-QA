@@ -166,6 +166,8 @@ const send = async () => {
   height: calc(100vh - 140px);
   display: flex;
   flex-direction: column;
+  border: 0;
+  background: rgba(255, 255, 255, 0.94);
 }
 .chat-card :deep(.el-card__body) {
   flex: 1;
@@ -177,11 +179,14 @@ const send = async () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 .chat-header-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
 }
 .history-wrap {
   min-height: 200px;
@@ -226,7 +231,11 @@ const send = async () => {
 .message-list {
   flex: 1;
   overflow-y: auto;
-  padding: 10px;
+  padding: 14px;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at top left, rgba(64, 158, 255, 0.08), transparent 32%),
+    linear-gradient(180deg, #f8fbff 0%, #f3f6fb 100%);
 }
 .message-row {
   display: flex;
@@ -240,19 +249,23 @@ const send = async () => {
 }
 .bubble {
   max-width: 70%;
-  padding: 12px 16px;
-  border-radius: 10px;
+  padding: 13px 17px;
+  border-radius: 16px;
   line-height: 1.6;
   white-space: pre-wrap;
   word-break: break-word;
+  box-shadow: 0 10px 24px rgba(26, 43, 73, 0.08);
 }
 .message-row.user .bubble {
-  background: #409eff;
+  background: linear-gradient(135deg, #2f86ff, #21b8ff);
   color: #fff;
+  border-bottom-right-radius: 6px;
 }
 .message-row.assistant .bubble {
-  background: #f4f4f5;
-  color: #303133;
+  background: #fff;
+  color: #26374f;
+  border: 1px solid rgba(223, 231, 242, 0.86);
+  border-bottom-left-radius: 6px;
 }
 .sources {
   margin-top: 10px;
@@ -270,7 +283,55 @@ const send = async () => {
 .input-area {
   display: flex;
   gap: 10px;
-  padding-top: 12px;
-  border-top: 1px solid #ebeef5;
+  align-items: flex-end;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(225, 232, 242, 0.9);
+}
+.input-area .el-button {
+  min-height: 54px;
+  padding: 0 22px;
+}
+
+@media (max-width: 900px) {
+  .chat-card {
+    height: calc(100vh - 108px);
+  }
+  .chat-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .chat-header-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .message-list {
+    padding: 10px;
+  }
+  .bubble {
+    max-width: 86%;
+  }
+}
+
+@media (max-width: 560px) {
+  .chat-card {
+    height: calc(100vh - 92px);
+  }
+  .chat-header-right {
+    gap: 6px;
+  }
+  .chat-header-right :deep(.el-button) {
+    padding: 4px 6px;
+  }
+  .bubble {
+    max-width: 94%;
+    padding: 11px 13px;
+  }
+  .input-area {
+    flex-direction: column;
+  }
+  .input-area .el-button {
+    width: 100%;
+    min-height: 42px;
+  }
 }
 </style>

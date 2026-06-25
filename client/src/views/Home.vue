@@ -67,25 +67,25 @@ onMounted(async () => {
   <div>
     <!-- 统计卡片 -->
     <el-row :gutter="20">
-      <el-col :span="6">
+      <el-col :xs="24" :sm="12" :lg="6">
         <el-card shadow="hover" class="stat-card">
           <div class="stat-icon" style="background:#409eff"><el-icon><User /></el-icon></div>
           <div class="stat-info"><div class="num">{{ cards.users }}</div><div class="label">用户总数</div></div>
         </el-card>
       </el-col>
-      <el-col :span="6">
+      <el-col :xs="24" :sm="12" :lg="6">
         <el-card shadow="hover" class="stat-card">
           <div class="stat-icon" style="background:#67c23a"><el-icon><Document /></el-icon></div>
           <div class="stat-info"><div class="num">{{ cards.documents }}</div><div class="label">文档总数</div></div>
         </el-card>
       </el-col>
-      <el-col :span="6">
+      <el-col :xs="24" :sm="12" :lg="6">
         <el-card shadow="hover" class="stat-card">
           <div class="stat-icon" style="background:#e6a23c"><el-icon><ChatDotRound /></el-icon></div>
           <div class="stat-info"><div class="num">{{ cards.chats }}</div><div class="label">问答总数</div></div>
         </el-card>
       </el-col>
-      <el-col :span="6">
+      <el-col :xs="24" :sm="12" :lg="6">
         <el-card shadow="hover" class="stat-card">
           <div class="stat-icon" style="background:#f56c6c"><el-icon><Files /></el-icon></div>
           <div class="stat-info"><div class="num">{{ cards.chunks }}</div><div class="label">向量切片数</div></div>
@@ -95,13 +95,13 @@ onMounted(async () => {
 
     <!-- 图表区域 -->
     <el-row :gutter="20" style="margin-top:20px">
-      <el-col :span="14">
+      <el-col :xs="24" :lg="14">
         <el-card shadow="hover">
           <template #header>近 7 天问答趋势</template>
           <div ref="trendRef" class="chart"></div>
         </el-card>
       </el-col>
-      <el-col :span="10">
+      <el-col :xs="24" :lg="10">
         <el-card shadow="hover">
           <template #header>文档类型分布</template>
           <div ref="docTypeRef" class="chart"></div>
@@ -110,7 +110,7 @@ onMounted(async () => {
     </el-row>
 
     <el-row :gutter="20" style="margin-top:20px">
-      <el-col :span="10">
+      <el-col :xs="24" :lg="10">
         <el-card shadow="hover">
           <template #header>用户角色分布</template>
           <div ref="roleRef" class="chart"></div>
@@ -125,6 +125,9 @@ onMounted(async () => {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+.stat-card {
+  margin-bottom: 20px;
 }
 .stat-icon {
   width: 56px;
@@ -147,5 +150,11 @@ onMounted(async () => {
 }
 .chart {
   height: 320px;
+}
+
+@media (max-width: 900px) {
+  .chart {
+    height: 260px;
+  }
 }
 </style>

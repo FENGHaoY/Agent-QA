@@ -15,4 +15,70 @@ body {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
   background-color: #f5f7fa;
   color: #303133;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(128, 145, 169, 0.32);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.el-card {
+  border: 1px solid rgba(220, 229, 241, 0.86);
+  border-radius: 18px;
+  box-shadow: 0 14px 36px rgba(21, 39, 69, 0.06);
+}
+
+.el-card__header {
+  border-bottom-color: rgba(224, 232, 243, 0.86);
+  font-weight: 700;
+  color: #17243a;
+}
+
+.el-button {
+  border-radius: 10px;
+}
+
+.el-button--primary {
+  box-shadow: 0 10px 22px rgba(64, 158, 255, 0.22);
+}
+
+.el-table {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.el-drawer {
+  border-radius: 18px 0 0 18px;
+}
+
+@media (max-width: 900px) {
+  .el-card {
+    border-radius: 14px;
+  }
+
+  .el-card__body {
+    padding: 16px;
+  }
 }

@@ -19,3 +19,4 @@ client/dist/
 server/chroma_db/
 server/uploads/
 server/chat_memory.sqlite*
+client/.vite/

@@ -71,7 +71,7 @@ onMounted(loadDocs)
       title="支持 PDF / TXT / Markdown / DOCX 格式，上传后将自动解析、切片并写入 Chroma 向量库。"
       style="margin-bottom:16px" />
 
-    <el-table :data="docs" v-loading="loading" border stripe>
+    <el-table :data="docs" v-loading="loading" border stripe class="docs-table">
       <el-table-column type="index" label="#" width="55" />
       <el-table-column prop="title" label="标题" min-width="160" />
       <el-table-column prop="filename" label="文件名" min-width="180" show-overflow-tooltip />
@@ -108,5 +108,19 @@ onMounted(loadDocs)
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
+}
+.docs-table {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .header :deep(.el-button) {
+    width: 100%;
+  }
 }
 </style>
